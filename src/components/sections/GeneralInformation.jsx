@@ -9,11 +9,12 @@ import * as All from "../../data/data.js";
 import CheckIcon from '@mui/icons-material/Check';
 import "../../styles/sections/style.css"; 
 
-function GeneralInformation({onChange, onSubmit, formValues}) { 
+function GeneralInformation({onChange, onSubmit, formValues, formData}) { 
     const saveButtonRef = useRef(null); 
     const [isVisible, setIsVisible] = useState(false); 
+    const [isEditing, setIsEditing] = useState(false); 
     const localData = All.data[0];  
-
+    const generalInfoData = formData.length !== 0 ? formData[0] : []; 
     function toggle() {
         let show = isVisible; 
         show = !show; 
@@ -25,10 +26,19 @@ function GeneralInformation({onChange, onSubmit, formValues}) {
             const filledFields = Object.values(formValues).filter((value) => {
                 return value !== '';  
             }); 
-            filledFields.length === Object.keys(formValues).length ? (saveButtonRef.current.disabled = false, saveButtonRef.current.className = "save-button save-button--enabled") : (saveButtonRef.current.disabled = true, saveButtonRef.current.className = "save-button save-button--disabled")
+            filledFields.length === Object.keys(formValues).length ? (handleEdit()) : (saveButtonRef.current.disabled = true, saveButtonRef.current.className = "save-button save-button--disabled")
         }
     })
 
+    function handleEdit() {
+
+        saveButtonRef.current.disabled = false; 
+        saveButtonRef.current.className = "save-button save-button--enabled"; 
+        if(isEditing === false && generalInfoData.length !== 0) {
+            setIsEditing(true);
+        }  
+    }
+   
     return (
         <Box sx={All.Container}>
             <Box sx={All.Wrapper}>
@@ -58,6 +68,16 @@ function GeneralInformation({onChange, onSubmit, formValues}) {
                             <CheckIcon />
                             Save
                         </button>
+                    </Box>
+                ) : null}
+                {isEditing ? (
+                    <Box sx={{backgroundColor: "red"}}>
+                        <label>{generalInfoData.firstName}</label>
+                        <label>{generalInfoData.lastName}</label>
+                        <label>{generalInfoData.email}</label>
+                        <label>{generalInfoData.phoneNumber}</label>
+                        <label>{generalInfoData.city}</label>
+                        <label>{generalInfoData.province}</label>
                     </Box>
                 ) : null}
             </Box>

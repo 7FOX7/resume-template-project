@@ -37,7 +37,7 @@ function App() {
     setForm__ProfessionInfo({...form__ProfessionInfo, [name]: value}); 
   }
 
-  function addData() {
+  const addData = () => {
     const copy = []; 
     copy.push(form__GeneralInfo); 
     copy.push(form__EducationInfo); 
@@ -66,7 +66,7 @@ function App() {
   return (
     <Box sx={Content}>
       <Box sx={SectionFields}>
-        <GeneralInformation onChange={handleInput__GeneralInfo} onSubmit={handleSubmit} formValues={form__GeneralInfo}/>
+        <GeneralInformation onChange={handleInput__GeneralInfo} onSubmit={handleSubmit} formValues={form__GeneralInfo} formData={formData}/>
         <EducationExperience onChange={handleInput__EducationInfo} onSubmit={handleSubmit} formValues={form__EducationInfo}/>
         <ProfessionExperience onChange={handleInput__ProfessionInfo} onSubmit={handleSubmit} formValues={form__ProfessionInfo}/>
       </Box>
