@@ -1,0 +1,30 @@
+:root {
+    --main-color: linear-gradient(to bottom right, #ff0000, #ff69b4); 
+    --disabled-button-color: rgb(150, 150, 150); 
+}
+
+.save-button {
+    width: 105px; 
+    margin-top: 25px;  
+    margin-left: auto; 
+    display: flex; 
+    padding: 10px; 
+    border-radius: 25px; 
+    border: none; 
+    color: #fff;
+    justify-content: space-evenly; 
+}
+
+.save-button:focus {
+    outline: none; 
+}
+
+.save-button--disabled {
+    background: var(--disabled-button-color); 
+    opacity: 0.5; 
+}
+
+.save-button--enabled {
+    background: var(--main-color); 
+    opacity: 1; 
+}

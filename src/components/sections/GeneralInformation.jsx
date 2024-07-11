@@ -1,13 +1,16 @@
 import {useState} from "react"; 
-import Box from "@mui/material/Box"
+import {useRef} from "react"; 
+import {useEffect} from "react"; 
+import Box from "@mui/material/Box"; 
 import Person from "@mui/icons-material/Person"; 
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import * as All from "../../data/data.js";
 import CheckIcon from '@mui/icons-material/Check';
+import "../../styles/sections/style.css"; 
 
-function GeneralInformation() {
-    const [formValue, setFormValue] = useState({firstName: '', lastName: '', email: '', phoneNumber: '', cityAndProvince: ''}); 
+function GeneralInformation({onChange, onSubmit, formValues}) { 
+    const saveButtonRef = useRef(null); 
     const [isVisible, setIsVisible] = useState(false); 
     const localData = All.data[0];  
 
@@ -17,18 +20,15 @@ function GeneralInformation() {
         setIsVisible(show); 
     }
 
-    const handleInput = (e) => {
-        // a good technique to get the name and the value (you cannot use the invalid names for {name, value}. the names should always match)
-        const {name, value} = e.target; 
-        setFormValue({...formValue, [name]: value}); 
-        
-        console.log(formValue); 
-    }
+    useEffect(() => {
+        if(saveButtonRef.current !== null) {
+            const filledFields = Object.values(formValues).filter((value) => {
+                return value !== '';  
+            }); 
+            filledFields.length === Object.keys(formValues).length ? (saveButtonRef.current.disabled = false, saveButtonRef.current.className = "save-button save-button--enabled") : (saveButtonRef.current.disabled = true, saveButtonRef.current.className = "save-button save-button--disabled")
+        }
+    })
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); 
-        
-    }
     return (
         <Box sx={All.Container}>
             <Box sx={All.Wrapper}>
@@ -40,19 +40,21 @@ function GeneralInformation() {
                 ) : (<KeyboardArrowDownIcon onClick={toggle} sx={All.Arrow}/>)}
                 </Box>
                 {isVisible ? (
-                    <Box sx={All.DropDown} component="form" onSubmit={handleSubmit} id="GeneralInformationForm">
+                    <Box sx={All.DropDown} component="form" onSubmit={onSubmit} id="GeneralInformationForm">
                         <label style={All.FormTitle}>{localData.firstName}</label>
-                        <input style={All.InputField} name="firstName" type="text" onChange={handleInput} placeholder={localData.firstName}/>
+                        <input style={All.InputField} name="firstName" type="text" onChange={onChange} placeholder={localData.firstName}/>
                         <label style={All.FormTitle}>{localData.lastName}</label>
-                        <input style={All.InputField} name="lastName" type="text" onChange={handleInput} placeholder={localData.lastName}/>
+                        <input style={All.InputField} name="lastName" type="text" onChange={onChange} placeholder={localData.lastName}/>
                         <label style={All.FormTitle}>{localData.email}</label>
-                        <input style={All.InputField} name="email" type="text" onChange={handleInput} placeholder={localData.email}/>
+                        <input style={All.InputField} name="email" type="text" onChange={onChange} placeholder={localData.email}/>
                         <label style={All.FormTitle}>{localData.phoneNumber}</label>
-                        <input style={All.InputField} name="phoneNumber" type="text" onChange={handleInput} placeholder={localData.phoneNumber}/>
-                        <label style={All.FormTitle}>{localData.cityAndProvince}</label>
-                        <input style={All.InputField} name="cityAndProvince" type="text" onChange={handleInput} placeholder={localData.cityAndProvince}/>
+                        <input style={All.InputField} name="phoneNumber" type="text" onChange={onChange} placeholder={localData.phoneNumber}/>
+                        <label style={All.FormTitle}>{localData.city}</label>
+                        <input style={All.InputField} name="city" type="text" onChange={onChange} placeholder={localData.city}/>
+                        <label style={All.FormTitle}>{localData.province}</label>
+                        <input style={All.InputField} name="province" type="text" onChange={onChange} placeholder={localData.province}/>
 
-                        <button style={All.SaveButton} type="submit">
+                        <button className="save-button save-button--disabled" type="submit" disabled ref={saveButtonRef}>
                             <CheckIcon />
                             Save
                         </button>

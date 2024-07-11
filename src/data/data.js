@@ -5,7 +5,8 @@ export const data = [
         lastName: "Last Name",  
         email: "Email", 
         phoneNumber: "Phone Number", 
-        cityAndProvince: "City and Province"
+        city: "City", 
+        province: "Province/Region"
     }, 
 
     {
@@ -27,8 +28,6 @@ export const data = [
         description: "Description"
     }
 ]
-
-export const mainColor = "linear-gradient(to bottom right, #ff0000, #ff69b4)"; 
 
 export const Arrow = {
     cursor: "pointer", 
@@ -52,19 +51,6 @@ export const Header = {
 export const DropDown = {
     display: "flex", 
     flexDirection: "column",  
-}
-export const SaveButton = {
-    width: "105px",
-    marginTop: "25px", 
-    marginLeft: "auto", 
-    display: "flex", 
-    padding: "10px", 
-    borderRadius: "25px", 
-    background: mainColor, 
-    outline: "none", 
-    border: "none", 
-    color: "#fff",
-    justifyContent: "space-evenly", 
 }
 export const MainTitle = {
     fontSize: "1.5em", 

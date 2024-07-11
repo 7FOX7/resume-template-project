@@ -1,12 +1,16 @@
 import {useState} from "react"; 
+import {useRef} from "react"; 
+import {useEffect} from "react"; 
 import Box from "@mui/material/Box"
 import WorkIcon from '@mui/icons-material/Work';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import * as All from "../../data/data.js";
 import CheckIcon from '@mui/icons-material/Check';
+import * as All from "../../data/data.js";
+import "../../styles/sections/style.css"; 
 
-function ProfessionExperience() {
+function ProfessionExperience({onChange, onSubmit, formValues}) {
+    const saveButtonRef = useRef(null); 
     const [isVisible, setIsVisible] = useState(false); 
     const localData = All.data[2]; 
 
@@ -15,6 +19,15 @@ function ProfessionExperience() {
         show = !show; 
         setIsVisible(show); 
     }
+
+    useEffect(() => {
+        if(saveButtonRef.current !== null) {
+            const filledFields = Object.values(formValues).filter((value) => {
+                return value !== '';  
+            }); 
+            filledFields.length === Object.keys(formValues).length ? (saveButtonRef.current.disabled = false, saveButtonRef.current.className = "save-button save-button--enabled") : (saveButtonRef.current.disabled = true, saveButtonRef.current.className = "save-button save-button--disabled")
+        }
+    })
 
     return (
         <Box sx={All.Container}>
@@ -27,25 +40,25 @@ function ProfessionExperience() {
                 ) : (<KeyboardArrowDownIcon onClick={toggle} sx={All.Arrow}/>)}
                 </Box>
                 {isVisible ? (
-                    <Box sx={All.DropDown} component="form">
+                    <Box sx={All.DropDown} component="form" onSubmit={onSubmit} id="ProfessionInformationForm">
                         <label style={All.FormTitle}>{localData.jobTitle}</label>
-                        <input style={All.InputField} type="text" placeholder={localData.jobTitle}/>
+                        <input style={All.InputField} type="text" name="jobTitle" onChange={onChange} placeholder={localData.jobTitle}/>
                         <label style={All.FormTitle}>{localData.company}</label>
-                        <input style={All.InputField} type="text" placeholder={localData.company}/>
+                        <input style={All.InputField} type="text" name="company" onChange={onChange} placeholder={localData.company}/>
                         <Box sx={All.DateInputFields}>
                             <Box sx={All.DateInputField}>
                                 <label style={All.FormTitle}>{localData.startDate}</label>
-                                <input style={All.InputField} type="date"/>
+                                <input style={All.InputField} type="date" name="startDate" onChange={onChange}/>
                             </Box>
                             <Box sx={All.DateInputField}>
                                 <label style={All.FormTitle}>{localData.endDate}</label>
-                                <input style={All.InputField} type="date"/>
+                                <input style={All.InputField} type="date" name="endDate" onChange={onChange}/>
                             </Box>
                         </Box>
                         <label style={All.FormTitle}>{localData.description}</label>
-                        <input style={All.InputField} type="text" placeholder="Main tasks"/>
+                        <input style={All.InputField} type="text" name="description" onChange={onChange} placeholder="Main tasks"/>
 
-                        <button style={All.SaveButton}>
+                        <button className="save-button save-button--disabled" type="submit" disabled ref={saveButtonRef}>
                             <CheckIcon />
                             Save
                         </button>
