@@ -1,19 +1,162 @@
 
-.default-button {
-    width: 105px; 
-    margin-top: 25px;  
+@media all and (min-width: 1480px) {
+    .form-title {
+        font-size: 1.1em; 
+        margin-top: 13px; 
+    }
+    
+    .input-field {
+        margin-top: 5px; 
+        padding-block: 12px; 
+        padding-inline: 8px; 
+        font-size: 0.9em; 
+    }
+    
+    .container-header {
+        padding: 20px; 
+        border-radius: 15px; 
+    }
+
+    .main-title {
+        font-size: 1.3em; 
+    }
+
+    .default-button {
+        width: 105px; 
+        margin-top: 25px;  
+        padding: 8px; 
+        font-size: 1em; 
+    }
+
+    .container {
+        padding: 16px; 
+        margin-bottom: 18px
+    }
+
+    .download-button {
+        width: 145px; 
+    }
+}
+
+@media all and (max-width: 1480px) {
+    .form-title {
+        font-size: 0.9em; 
+        margin-top: 11px; 
+    }
+    
+    .input-field {
+        margin-top: 5px; 
+        padding-block: 10px; 
+        padding-inline: 8px; 
+        font-size: 0.8em; 
+    }
+    
+    .container-header {
+        padding: 15px; 
+        border-radius: 15px; 
+    }
+
+    .main-title {
+        font-size: 1.1em; 
+    }
+
+    .default-button {
+        width: 100px; 
+        margin-top: 25px;  
+        padding: 5px; 
+        font-size: 0.9em; 
+    }
+
+    .container {
+        padding: 12px; 
+        margin-bottom: 15px; 
+    }
+
+    .download-button {
+        width: 130px; 
+    }
+}
+
+.arrow {
+    cursor: pointer; 
+}
+
+.form-title {
+    font-weight: 500; 
+}
+
+.container { 
+    box-shadow: 0px 0px 5px rgb(0, 0, 0); 
+    background: var(--section-color); 
+    width: 100%; 
+    height: fit-content; 
+    border-radius: 15px; 
+}
+
+.wrapper {
+    display: flex; 
+    flex-direction: column;  
+}
+
+.header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.dropDown {
+    display: flex; 
+    flex-direction: column;  
+}
+
+.main-title {
+    font-weight: 700; 
+}
+
+.input-field {
+    outline: none; 
+    border: none;   
+    border-radius: 12px; 
+}
+
+.date-input-fields {
+    display: flex; 
+    margin-top: 2px; 
+    justify-content: space-between; 
+}
+
+.date-input-field {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.container-header {
+    box-shadow: 0px 0px 5px rgb(0, 0, 0); 
+    background: var(--section-color); 
+    width: 100%; 
+    height: 100%; 
+}
+
+.content--Header {
+    display: flex;  
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%; 
+    align-items: center; 
+}
+
+.default-button { 
     margin-left: auto; 
     display: flex; 
-    padding: 10px; 
-    border-radius: 25px; 
     border: none; 
     color: #fff;
     justify-content: space-evenly; 
     align-items: center;
     cursor: pointer; 
     font-weight: 600;
-    font-size: 1em; 
     letter-spacing: 1px;
+    border-radius: 25px; 
 }
 
 .default-button:focus {
@@ -31,17 +174,17 @@
 }
 
 .download-button {
-    width: 150px; 
     margin: 0; 
 }
 
 .edit-button {
-    background: var(--save-button-color); 
-    transition: 0.2s; 
+    color: rgb(0, 0, 0); 
+    background-color: var(--edit-button-color); 
+    transition: 0.3s; 
 }
 
 .edit-button:hover {
-    filter: brightness(60%); 
+    filter: brightness(85%); 
 }
 
 .clear-button {

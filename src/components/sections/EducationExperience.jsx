@@ -62,23 +62,23 @@ function EducationExperience({onClick, onChange, onSubmit, formValues, formData}
     }
 
     const viewTemplate = (
-        <Box sx={All.DropDown} component="form" onSubmit={onSubmit} id="EducationInformationForm">
-            <label style={All.FormTitle}>{localData.degree}</label>
-            <input style={All.InputField} type="text" name="degree" value={formValues.degree} onChange={onChange} placeholder={localData.degree}/>
-            <label style={All.FormTitle}>{localData.school}</label>
-            <input style={All.InputField} type="text" name="school" value={formValues.school} onChange={onChange} placeholder={localData.school}/>
-            <label style={All.FormTitle}>{localData.city}</label>
-            <input style={All.InputField} type="text" name="city" value={formValues.city} onChange={onChange} placeholder={localData.city}/>
-            <label style={All.FormTitle}>{localData.country}</label>
-            <input style={All.InputField} type="text" name="country" value={formValues.country} onChange={onChange} placeholder={localData.country}/>
-            <Box sx={All.DateInputFields}>
-                <Box sx={All.DateInputField}>
-                    <label style={All.FormTitle}>{localData.startDate}</label>
-                    <input style={All.InputField} type="date" name="startDate" value={formValues.startDate} onChange={onChange}/>
+        <Box className="dropDown" component="form" onSubmit={onSubmit} id="EducationInformationForm">
+            <label className="form-title">{localData.degree}</label>
+            <input className="input-field" type="text" name="degree" value={formValues.degree} onChange={onChange} placeholder={localData.degree}/>
+            <label className="form-title">{localData.school}</label>
+            <input className="input-field" type="text" name="school" value={formValues.school} onChange={onChange} placeholder={localData.school}/>
+            <label className="form-title">{localData.city}</label>
+            <input className="input-field" type="text" name="city" value={formValues.city} onChange={onChange} placeholder={localData.city}/>
+            <label className="form-title">{localData.country}</label>
+            <input className="input-field" type="text" name="country" value={formValues.country} onChange={onChange} placeholder={localData.country}/>
+            <Box className="date-input-fields">
+                <Box className="date-input-field">
+                    <label className="form-title">{localData.startDate}</label>
+                    <input className="input-field" type="date" name="startDate" value={formValues.startDate} onChange={onChange}/>
                 </Box>
-                <Box sx={All.DateInputField}> 
-                    <label style={All.FormTitle}>{localData.endDate}</label>
-                    <input style={All.InputField} type="date" name="endDate" value={formValues.endDate} onChange={onChange}/>
+                <Box className="date-input-field"> 
+                    <label className="form-title">{localData.endDate}</label>
+                    <input className="input-field" type="date" name="endDate" value={formValues.endDate} onChange={onChange}/>
                 </Box>
             </Box>
             
@@ -96,8 +96,8 @@ function EducationExperience({onClick, onChange, onSubmit, formValues, formData}
     )   
 
     const reflectionTemplate = (
-        <Box sx={{marginTop: "25px", display: "flex", flexDirection: "column", fontSize: "1.1em"}}>
-            <Box sx={{width: "100%", height: "6px", background: "rgb(120, 120, 120)"}}></Box>
+        <Box sx={{marginTop: "12px", display: "flex", flexDirection: "column", fontSize: "1em"}}>
+            <Box sx={{width: "100%", height: "6px", background: "rgba(120, 120, 120, 0.5)"}}></Box>
             <label style={{fontWeight: "700"}}>{educationInfoData.degree}</label>
             <label style={{fontStyle: "italic"}}>{educationInfoData.school}</label>
             <label>{educationInfoData.city}</label>
@@ -109,14 +109,14 @@ function EducationExperience({onClick, onChange, onSubmit, formValues, formData}
     )
 
     return (
-        <Box sx={All.Container}>
-            <Box sx={All.Wrapper}>
-                <Box sx={All.Header}>
+        <Box className="container">
+            <Box className="wrapper">
+                <Box className="header">
                     <SchoolIcon />
-                    <label style={All.MainTitle}>{localData.title}</label>
+                    <label className="main-title">{localData.title}</label>
                 {isVisible ? (
-                    <KeyboardArrowUpIcon onClick={toggle} sx={All.Arrow}/>
-                ) : (<KeyboardArrowDownIcon onClick={toggle} sx={All.Arrow}/>)}
+                    <KeyboardArrowUpIcon onClick={toggle} className="arrow"/>
+                ) : (<KeyboardArrowDownIcon onClick={toggle} className="arrow"/>)}
                 </Box>
                 {isVisible ? viewTemplate : null}
                 {isReflected ? reflectionTemplate : null}

@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 function CurriculumVitae({formData}) { 
     if(formData.length > 0) {
         const [generalInfo, educationInfo, professionInfo] = formData;
-        console.log(generalInfo);  
         return (
             <>
                 <Box sx={{display: "flex", flexDirection: "column", width: "100%", height: "12%"}}>

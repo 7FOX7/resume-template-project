@@ -2,8 +2,8 @@
   --page-color: rgb(209, 209, 209); 
   --main-color: linear-gradient(to bottom right, #ff0000, #ff69b4); 
   --disabled-button-color: rgb(150, 150, 150); 
-  --save-button-color: inherit; 
-  --clear-button-color: rgb(200, 200, 200); 
+  --edit-button-color: rgb(227, 227, 227); 
+  --clear-button-color: rgb(202, 202, 202); 
   --CVTemplateColor: rgb(255, 255, 255) ; 
   --section-color: rgb(233, 233, 233); 
 }
@@ -15,4 +15,6 @@
 body {
   margin: 0; 
   padding: 0;  
+  background: var(--page-color); 
+  overflow-x: hidden; 
 }

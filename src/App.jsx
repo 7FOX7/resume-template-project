@@ -1,5 +1,6 @@
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import MediaQuery from "react-responsive";
 import { useState } from "react";
 import { useRef } from "react";
 import SaveResume from "./components/sections/SaveResume";
@@ -11,22 +12,8 @@ import ProfessionExperience from "./components/sections/ProfessionExperience";
 import Box from "@mui/material/Box"; 
 import './App.css'; 
 
-const CVSection = {
-  padding: "25px", 
-  flexGrow: "4", 
-  height: "80%", 
-  background: "var(--CVTemplateColor)", 
-  overflow: "hidden", 
-  boxShadow: "0px 0px 1px rgb(0, 0, 0)"
-}
-const SectionFields = {
-  marginInline: "100px", 
-  flexGrow: "2", 
-  display: "flex", 
-  flexDirection: "column", 
-}
 const Content = {
-  background: "var(--page-color)", 
+  background: "inherit", 
   paddingInline: "30px", 
   width: "100vw", 
   height: "100vh", 
@@ -34,10 +21,25 @@ const Content = {
   alignItems: "center", 
   justifyContent: "space-between"
 }
+const CVSection = {
+  padding: "25px", 
+  width: "35%", 
+  height: "86%", 
+  background: "var(--CVTemplateColor)", 
+  overflow: "hidden", 
+  boxShadow: "0px 0px 1px rgb(0, 0, 0)"
+}
+const SectionFields = {
+  marginInline: "80px", 
+  width: "35%",  
+  display: "flex", 
+  flexDirection: "column", 
+}
 const HeaderSection = {
-  flexGrow: "0.5", 
+  width: "18%", 
   height: "60%"
 }
+
 
 const defaultForm__GeneralInfo = {firstName: '', lastName: '', email: '', phoneNumber: '', city: '', province: ''}; 
 const defaultForm__EducationInfo = {degree: '', school: '',  city: '', country: '', startDate: '', endDate: ''}; 

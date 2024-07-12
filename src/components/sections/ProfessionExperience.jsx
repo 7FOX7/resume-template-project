@@ -62,23 +62,23 @@ function ProfessionExperience({onClick, onChange, onSubmit, formValues, formData
     }
 
     const viewTemplate = (
-        <Box sx={All.DropDown} component="form" onSubmit={onSubmit} id="ProfessionInformationForm">
-            <label style={All.FormTitle}>{localData.jobTitle}</label>
-            <input style={All.InputField} type="text" name="jobTitle" value={formValues.jobTitle} onChange={onChange} placeholder={localData.jobTitle}/>
-            <label style={All.FormTitle}>{localData.company}</label>
-            <input style={All.InputField} type="text" name="company" value={formValues.company} onChange={onChange} placeholder={localData.company}/>
-            <Box sx={All.DateInputFields}>
-                <Box sx={All.DateInputField}>
-                    <label style={All.FormTitle}>{localData.startDate}</label>
-                    <input style={All.InputField} type="date" name="startDate" value={formValues.startDate} onChange={onChange}/>
+        <Box className="dropDown" component="form" onSubmit={onSubmit} id="ProfessionInformationForm">
+            <label className="form-title">{localData.jobTitle}</label>
+            <input className="input-field" type="text" name="jobTitle" value={formValues.jobTitle} onChange={onChange} placeholder={localData.jobTitle}/>
+            <label className="form-title">{localData.company}</label>
+            <input className="input-field" type="text" name="company" value={formValues.company} onChange={onChange} placeholder={localData.company}/>
+            <Box className="date-input-fields">
+                <Box className="date-input-field">
+                    <label className="form-title">{localData.startDate}</label>
+                    <input className="input-field" type="date" name="startDate" value={formValues.startDate} onChange={onChange}/>
                 </Box>
-                <Box sx={All.DateInputField}>
-                    <label style={All.FormTitle}>{localData.endDate}</label>
-                    <input style={All.InputField} type="date" name="endDate" value={formValues.endDate} onChange={onChange}/>
+                <Box className="date-input-field">
+                    <label className="form-title">{localData.endDate}</label>
+                    <input className="input-field" type="date" name="endDate" value={formValues.endDate} onChange={onChange}/>
                 </Box>
             </Box>
-            <label style={All.FormTitle}>{localData.description}</label>
-            <input style={All.InputField} type="text" name="description" value={formValues.description} onChange={onChange} placeholder="Main tasks"/>
+            <label className="form-title">{localData.description}</label>
+            <input className="input-field" type="text" name="description" value={formValues.description} onChange={onChange} placeholder="Main tasks"/>
 
             <Box sx={{display: "flex", justifyContent: "space-between"}}>
                 {isReflected ? <button className="clear-button default-button" onClick={onClick}>
@@ -94,8 +94,8 @@ function ProfessionExperience({onClick, onChange, onSubmit, formValues, formData
     )
 
     const reflectionTemplate = (
-        <Box sx={{marginTop: "25px", display: "flex", flexDirection: "column", fontSize: "1.1em"}}>
-            <Box sx={{width: "100%", height: "6px", background: "rgb(120, 120, 120)"}}></Box>
+        <Box sx={{marginTop: "12px", display: "flex", flexDirection: "column", fontSize: "1em"}}>
+            <Box sx={{width: "100%", height: "6px", background: "rgba(120, 120, 120, 0.5)"}}></Box>
             <label style={{fontWeight: "700"}}>{professionInfoData.jobTitle}</label>
             <label style={{fontStyle: "italic"}}>{professionInfoData.company}</label>
             <label>{professionInfoData.startDate}</label>
@@ -106,14 +106,14 @@ function ProfessionExperience({onClick, onChange, onSubmit, formValues, formData
     )
 
     return (
-        <Box sx={All.Container}>
-            <Box sx={All.Wrapper}>
-                <Box sx={All.Header}>
+        <Box className="container">
+            <Box className="wrapper">
+                <Box className="header">
                     <WorkIcon />
-                    <label style={All.MainTitle}>{localData.title}</label>
+                    <label className="main-title">{localData.title}</label>
                 {isVisible ? (
-                    <KeyboardArrowUpIcon onClick={toggle} sx={All.Arrow}/>
-                ) : (<KeyboardArrowDownIcon onClick={toggle} sx={All.Arrow}/>)}
+                    <KeyboardArrowUpIcon onClick={toggle} className="arrow"/>
+                ) : (<KeyboardArrowDownIcon onClick={toggle} className="arrow"/>)}
                 </Box>
                 {isVisible ? viewTemplate : null}
                 {isReflected ? reflectionTemplate : null}

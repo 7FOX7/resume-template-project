@@ -62,19 +62,19 @@ function GeneralInformation({onClick, onChange, onSubmit, formValues, formData})
     }
     
     const viewTemplate = (
-        <Box sx={All.DropDown} component="form" onSubmit={onSubmit} id="GeneralInformationForm">
-            <label style={All.FormTitle}>{localData.firstName}</label>
-            <input style={All.InputField} name="firstName" type="text" value={formValues.firstName} onChange={onChange} placeholder={localData.firstName}/>
-            <label style={All.FormTitle}>{localData.lastName}</label>
-            <input style={All.InputField} name="lastName" type="text" value={formValues.lastName} onChange={onChange} placeholder={localData.lastName}/>
-            <label style={All.FormTitle}>{localData.email}</label>
-            <input style={All.InputField} name="email" type="text" value={formValues.email} onChange={onChange} placeholder={localData.email}/>
-            <label style={All.FormTitle}>{localData.phoneNumber}</label>
-            <input style={All.InputField} name="phoneNumber" type="text" value={formValues.phoneNumber} onChange={onChange} placeholder={localData.phoneNumber}/>
-            <label style={All.FormTitle}>{localData.city}</label>
-            <input style={All.InputField} name="city" type="text" value={formValues.city} onChange={onChange} placeholder={localData.city}/>
-            <label style={All.FormTitle}>{localData.province}</label>
-            <input style={All.InputField} name="province" type="text" value={formValues.province} onChange={onChange} placeholder={localData.province}/>
+        <Box className="dropDown" component="form" onSubmit={onSubmit} id="GeneralInformationForm">
+            <label className="form-title">{localData.firstName}</label>
+            <input className="input-field" name="firstName" type="text" value={formValues.firstName} onChange={onChange} placeholder={localData.firstName}/>
+            <label className="form-title">{localData.lastName}</label>
+            <input className="input-field" name="lastName" type="text" value={formValues.lastName} onChange={onChange} placeholder={localData.lastName}/>
+            <label className="form-title">{localData.email}</label>
+            <input className="input-field" name="email" type="text" value={formValues.email} onChange={onChange} placeholder={localData.email}/>
+            <label className="form-title">{localData.phoneNumber}</label>
+            <input className="input-field" name="phoneNumber" type="text" value={formValues.phoneNumber} onChange={onChange} placeholder={localData.phoneNumber}/>
+            <label className="form-title">{localData.city}</label>
+            <input className="input-field" name="city" type="text" value={formValues.city} onChange={onChange} placeholder={localData.city}/>
+            <label className="form-title">{localData.province}</label>
+            <input className="input-field" name="province" type="text" value={formValues.province} onChange={onChange} placeholder={localData.province}/>
 
             <Box sx={{display: "flex", justifyContent: "space-between"}}>
                 {isReflected ? <button className="clear-button default-button" onClick={onClick}>
@@ -90,8 +90,8 @@ function GeneralInformation({onClick, onChange, onSubmit, formValues, formData})
     )
 
     const reflectionTemplate = (
-        <Box sx={{marginTop: "25px", display: "flex", flexDirection: "column", fontSize: "1.1em"}}>
-            <Box sx={{width: "100%", height: "6px", background: "rgb(120, 120, 120)"}}></Box>
+        <Box sx={{marginTop: "12px", display: "flex", flexDirection: "column", fontSize: "1em"}}>
+            <Box sx={{width: "100%", height: "6px", background: "rgba(120, 120, 120, 0.5)"}}></Box>
             <label style={{fontWeight: "700"}}>{generalInfoData.firstName}</label>
             <label style={{fontStyle: "italic"}}>{generalInfoData.lastName}</label>
             <label>{generalInfoData.email}</label>
@@ -103,14 +103,14 @@ function GeneralInformation({onClick, onChange, onSubmit, formValues, formData})
     )
 
     return (
-        <Box sx={All.Container}>
-            <Box sx={All.Wrapper}>
-                <Box sx={All.Header}>
+        <Box className="container">
+            <Box className="wrapper">
+                <Box className="header">
                     <Person />
-                    <label style={All.MainTitle}>{localData.title}</label>
+                    <label className="main-title">{localData.title}</label>
                 {isVisible ? (
-                    <KeyboardArrowUpIcon onClick={toggle} sx={All.Arrow}/>
-                ) : (<KeyboardArrowDownIcon onClick={toggle} sx={All.Arrow}/>)}
+                    <KeyboardArrowUpIcon onClick={toggle} className="arrow"/>
+                ) : (<KeyboardArrowDownIcon onClick={toggle} className="arrow"/>)}
                 </Box>
                 {isVisible ? viewTemplate : null}
                 {isReflected ? reflectionTemplate : null}
