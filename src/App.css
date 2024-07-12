@@ -1,7 +1,18 @@
+:root {
+  --page-color: rgb(209, 209, 209); 
+  --main-color: linear-gradient(to bottom right, #ff0000, #ff69b4); 
+  --disabled-button-color: rgb(150, 150, 150); 
+  --save-button-color: inherit; 
+  --clear-button-color: rgb(200, 200, 200); 
+  --CVTemplateColor: rgb(255, 255, 255) ; 
+  --section-color: rgb(233, 233, 233); 
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0; 
   padding: 0;  
-  overflow-x: hidden; 
-  display: flex; 
-  justify-content: center;
 }

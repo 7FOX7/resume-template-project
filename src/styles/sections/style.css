@@ -1,9 +1,5 @@
-:root {
-    --main-color: linear-gradient(to bottom right, #ff0000, #ff69b4); 
-    --disabled-button-color: rgb(150, 150, 150); 
-}
 
-.save-button {
+.default-button {
     width: 105px; 
     margin-top: 25px;  
     margin-left: auto; 
@@ -14,9 +10,13 @@
     color: #fff;
     justify-content: space-evenly; 
     align-items: center;
+    cursor: pointer; 
+    font-weight: 600;
+    font-size: 1em; 
+    letter-spacing: 1px;
 }
 
-.save-button:focus {
+.default-button:focus {
     outline: none; 
 }
 
@@ -28,4 +28,24 @@
 .save-button--enabled {
     background: var(--main-color); 
     opacity: 1; 
+}
+
+.download-button {
+    width: 150px; 
+    margin: 0; 
+}
+
+.edit-button {
+    background: var(--save-button-color); 
+    transition: 0.2s; 
+}
+
+.edit-button:hover {
+    filter: brightness(60%); 
+}
+
+.clear-button {
+    background: var(--clear-button-color); 
+    color: rgb(0, 0, 0); 
+    margin-left: 0; 
 }

@@ -4,7 +4,6 @@ function CurriculumVitae({formData}) {
     if(formData.length > 0) {
         const [generalInfo, educationInfo, professionInfo] = formData;
         console.log(generalInfo);  
-
         return (
             <>
                 <Box sx={{display: "flex", flexDirection: "column", width: "100%", height: "12%"}}>
@@ -33,7 +32,7 @@ function CurriculumVitae({formData}) {
                         </>
                     )}
                 </Box>
-                <Box sx={{marginTop: "25px", height: "25%"}}>
+                <Box sx={{marginTop: "35px", height: "25%"}}>
                     {professionInfo.jobTitle !== '' && (
                         <>
                             <label style={{fontSize: "1.4em", fontWeight: "700"}}>Professional Experience</label>

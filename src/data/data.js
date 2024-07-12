@@ -33,8 +33,9 @@ export const Arrow = {
     cursor: "pointer", 
 }
 export const Container = {
-    backgroundColor: "gray",
-    width: "700px", 
+    boxShadow: "0px 0px 5px rgb(0, 0, 0)", 
+    background: "var(--section-color)",
+    width: "100%", 
     height: "fit-content",
     padding: "20px",
     borderRadius: "15px", 
@@ -47,6 +48,7 @@ export const Wrapper = {
 export const Header = {
     display: "flex", 
     justifyContent: "space-between", 
+    alignItems: "center"
 }
 export const DropDown = {
     display: "flex", 
@@ -80,5 +82,19 @@ export const DateInputField = {
     flexDirection: "column", 
     alignItems: "center"
 }
-
+export const Container__Header = {
+    boxShadow: "0px 0px 5px rgb(0, 0, 0)", 
+    background: "var(--section-color)",
+    width: "100%", 
+    height: "100%",
+    padding: "20px",
+    borderRadius: "15px"
+}
+export const Content__Header = {
+    display: "flex", 
+    flexDirection: "column", 
+    justifyContent: "space-between", 
+    height: "100%", 
+    alignItems: "center"
+}
 
